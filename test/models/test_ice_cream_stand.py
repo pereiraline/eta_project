@@ -1,4 +1,4 @@
-from src.models.ice_cream_stand import IceCreamStand
+from src.services.ice_cream_stand import IceCreamStand
 
 
 class TestIceCreamStand:
@@ -38,7 +38,7 @@ class TestIceCreamStand:
         service = IceCreamStand(restaurant_name="abc", cuisine_type="Bra")
         not_stoke = "Estamos sem estoque atualmente!"
 
-        resultado = service.find_flavor("Uva")
+        resultado = service.add_flavor("Goiaba")
         print(resultado)
 
         assert resultado == not_stoke
@@ -47,7 +47,7 @@ class TestIceCreamStand:
     def test_add_flavor(self):
         #Setup:
         service = IceCreamStand(restaurant_name="abc", cuisine_type="Bra")
-        add_flavor = "Uva adicionado ao estoque!"
+        add_flavor = "Sabor Uva adicionado ao estoque!"
 
         #Chamada
         resultado = service.add_flavor("Uva")
@@ -59,7 +59,7 @@ class TestIceCreamStand:
     def test_verify_flavor(self):
         #Setup
         service = IceCreamStand(restaurant_name="abc", cuisine_type="Bra")
-        verify_flavor = "Sabor já disponivel!"
+        verify_flavor = "Sabor Uva já disponível no estoque!"
         service.add_flavor("Uva")
 
         #Chamada

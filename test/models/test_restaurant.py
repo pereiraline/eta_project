@@ -1,4 +1,4 @@
-from src.models.restaurant import Restaurant
+from src.services.restaurant import Restaurant
 
 
 class TestRestaurant:
@@ -66,7 +66,7 @@ class TestRestaurant:
         #Avaliação
         assert resultado == closed
 
-    def test_increment_number_served(self):
+    def test_increment_number(self):
         #Setup
         service = Restaurant(restaurant_name="LaCuisine", cuisine_type="italiana", number_served=40)
         service.open = True

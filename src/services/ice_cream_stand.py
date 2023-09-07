@@ -1,4 +1,4 @@
-from src.models.restaurant import Restaurant
+from src.services.restaurant import Restaurant
 
 
 class IceCreamStand(Restaurant):
@@ -14,17 +14,15 @@ class IceCreamStand(Restaurant):
         """
         super().__init__(restaurant_name, cuisine_type, number_served=None)
 
-
+        #self.flavors = flavors_list - linha de código removida após declaração de variavel(flavors_list)
 
     def flavors_available(self):
         """Percorra a lista de sabores disponíveis e imprima."""
 
         if self.flavors_list:
-
             return list(self.flavors_list)
 
-        #Como o objetivo do metodo é imprimir a lista de sabores disponível
-        #Todo o codigo foi reformulado, a fim de atender o que foi proposto
+        #Como o objetivo do metodo é imprimir a lista de sabores disponíveis, todo codigo foi subtituido por list
 
         """if self.flavors:
             print("\nNo momento temos os seguintes sabores de sorvete disponíveis:")
@@ -41,18 +39,25 @@ class IceCreamStand(Restaurant):
                 return f"Temos no momento {flavor}!"
             else:
                 return f"Não temos no momento {flavor}!"
-        else:
-            return "Estamos sem estoque atualmente!"
+        """else:
+            return "Estamos sem estoque atualmente!"""
+        #Todos os prints substituido por return
+        #ultima linha de código removida por já pertencer a outro metodo
+
 
 
     def add_flavor(self, flavor):
-        """Add o sabor informado ao estoque."""
+        """Adiciona o sabor informado ao estoque."""
 
         if self.flavors_list:
             if flavor in self.flavors_list:
-                return "Sabor já disponivel!"
+                return f"Sabor {flavor} já disponível no estoque!"
             else:
                 self.flavors_list.append(flavor)
-                return f"{flavor} adicionado ao estoque!"
+                return f"Sabor {flavor} adicionado ao estoque!"
         else:
-            return "Estamos sem estoque atualmente!"
+            return "Estamos sem estoque atualmente!" #linha de código não coberta por falta de tempo
+
+        # Todos os prints substituido por return
+
+
